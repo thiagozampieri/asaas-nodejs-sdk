@@ -2,13 +2,14 @@
   "name": "asaas-nodejs-sdk",
   "version": "0.0.0",
   "description": "A wrapper to Asaas API",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
+    "start": "nodemon ./src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/MarcoNicolodi/asaas-nodejs-sdk"
+    "url": "https://github.com/thiagozampieri/asaas-nodejs-sdk"
   },
   "keywords": [
     "In",
@@ -19,9 +20,9 @@
     "API",
     "Asaas"
   ],
-  "author": "Marco Nicolodi",
+  "author": "Thiago Zampieri",
   "license": "BSD-2-Clause",
   "bugs": {
-    "url": "https://github.com/MarcoNicolodi/asaas-nodejs-sdk/issues"
+    "url": "https://github.com/thiagozampieri/asaas-nodejs-sdk/issues"
   }
 }

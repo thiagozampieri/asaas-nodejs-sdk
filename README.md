@@ -13,8 +13,12 @@ var asaas = require('asaas-nodejs-sdk');
 Configure seu ambiente `homologacao` ou `producao` e sua access token:
 
 ```javascript
-asaas.settings.setAccessToken( 'sua_access_token');
-asaas.settings.setEnvironment('homologacao || producao');
+asaas.settings.config({
+	environment: 'sandbox || production',
+	apiKey: 'sua_access_token',
+	version: 'v3',
+	debug: false,
+});
 ``` 
 
 Toda chamada a API deve conter uma função `callback` seguindo o padrão NodeJS, ou seja, primeiro argumento deve ser uma váriavel de erro(se existir) e o segundo uma variável de sucesso(se não houver erro).
