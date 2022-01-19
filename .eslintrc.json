@@ -1,0 +1,22 @@
+{
+    "extends": "standard",
+    "rules": {
+        "indent": ["error", 2],
+        "no-var": ["error"],
+        "space-before-function-paren": ["off"],
+        "padded-blocks": ["off"],
+        "eol-last": ["off"],
+        "no-trailing-spaces": ["off"],
+        "no-useless-escape": ["off"],
+        "no-unused-expressions": ["off"],
+        "semi": ["off"],
+    },
+    "globals": {
+        "describe": true,
+        "it": true,
+        "before": true,
+        "beforeEach": true,
+        "after": true,
+        "afterEach": true
+    }
+}
