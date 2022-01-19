@@ -42,7 +42,7 @@ const api = async (path, method, postData) => {
           data += chunk.toString();
         })
         .on('error', (err) => callback(err))
-        .on('end', () =>  callback(data));
+        .on('end', () => data && data !== '' && callback(JSON.parse(data)));
     })
     .on('error', (err) => callback(err));
 
