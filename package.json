@@ -5,6 +5,9 @@
   "main": "src/index.js",
   "scripts": {
     "start": "nodemon ./src/index.js",
+    "compile-watch": "nodemon --exec npm run compile",
+    "compile": "babel src --out-dir lib --extensions \".js\"",
+    "postinstall": "npm run compile",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,6 +23,31 @@
     "API",
     "Asaas"
   ],
+  "devDependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.10.4",
+    "@babel/plugin-proposal-object-rest-spread": "^7.11.0",
+    "eslint": "5.3.0",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-promise": "^3.8.0",
+    "eslint-plugin-standard": "^3.1.0",
+    "nodemon": "1.18.3",
+    "nyc": "^13.0.1"
+  },
+  "dependencies": {
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.11.1",
+    "@babel/node": "^7.10.5",
+    "@babel/plugin-transform-runtime": "^7.15.8",
+    "@babel/preset-env": "^7.11.0",
+    "@babel/preset-typescript": "^7.10.4",
+    "@babel/runtime": "^7.15.4",
+    "@babel/runtime-corejs3": "^7.15.4",
+    "@types/node": "^14.0.27",
+    "core-js": "^3.19.0",
+    "regenerator-runtime": "^0.13.9"
+  },
   "author": "Thiago Zampieri",
   "license": "BSD-2-Clause",
   "bugs": {
