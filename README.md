@@ -1,7 +1,7 @@
 # asaas-nodejs-sdk
 A wrapper to Asaas API
 
-Um wrapper em NodeJS para a [API de pagamento do Asaas](https://www.asaas.com/documentacao/faq-asaas/)
+Um wrapper em NodeJS para a [API V3 Asaas](https://asaasv3.docs.apiary.io/)
 Para utilizá-la, você deve fazer um cadastro para receber sua Access Token.
 
 Para utilizar este wrapper, simplesmente inclua o módulo através de um require
@@ -10,7 +10,7 @@ Para utilizar este wrapper, simplesmente inclua o módulo através de um require
 var asaas = require('asaas-nodejs-sdk');
 ```
 
-Configure seu ambiente `homologacao` ou `producao` e sua access token:
+Configure seu ambiente `sandbox` ou `production` e sua access token:
 
 ```javascript
 asaas.settings.config({
@@ -27,14 +27,10 @@ Os métodos que tiverem um parâmetro `filter` devem receber um objeto chave-val
 
 ```javascript
 //com filtros
-asaas.payment.getAll({status:'OVERDUE'},function(err, data){
-
-});
+asaas.payment.getAll({ status:'OVERDUE' });
 
 //sem filtros
-asaas.payment.getAll(null,function(err, data){
-
-});
+asaas.payment.getAll(null);
 ```
 
 
@@ -43,59 +39,51 @@ Os métodos que tiverem um parâmetro `data` devem receber um objeto chave-valor
 Exemplo:
 
 ```javascript
-asaas.customer.create({'name': 'nodejs','email':'nodejs@nodejs.com'},function(err, data){
-	if(err){
-		//HTTP 400, 401,404,500
-		//tratar erro
-	} else {
-		//HTTP 200
-		//variável data é a mesma que retorna no retorno 200 da API oficial
-	}
-});
+asaas.customer.create({ name: 'nodejs', email: 'nodejs@nodejs.com' });
 ```
 
 ## Clientes
 
 ```javascript
 //retorna todos os clientes
-asaas.customers.getAll(filters || null,callback);
+asaas.customer.getAll(filters || null);
 
 //retorna determinado cliente por id
-asaas.customers.getById(id,callback);
+asaas.customer.getById(id);
 
 //retorna cliente por email
-asaas.customers.getByEmail(email,callback);
+asaas.customer.getByEmail(email);
 
 //cria um cliente
-asaas.customers.create({name: 'nome',email: 'email@email.com'},callback);
+asaas.customer.create({ name: 'nome', email: 'email@email.com' });
 
 //atualiza determinado cliente por id
-asaas.customers.update('cus_abc123',{name: 'novo nome',address: 'nova rua'},callback);
+asaas.customer.update('cus_abc123',{ name: 'novo nome', address: 'nova rua' });
 
 //exclui determinado cliente por id
-asaas.customers.delete(id);
+asaas.customer.delete(id);
 ```
 
 ## Assinaturas
 
 ```javascript
 //retorna todas as assinaturas
-asaas.subscriptions.getAll(filters || null, callback);
+asaas.subscriptions.getAll(filters || null);
 
 //retorna determinada assinatura por id
-asaas.subscriptions.getById(id,callback);
+asaas.subscriptions.getById(id);
 
 //retorna as assinaturas de determinado cliente com o customer_id
-asaas.subscriptions.getByCustomer(filters || null, customer_id,callback);
+asaas.subscriptions.getByCustomer(filters || null, customer_id);
 
 //cria uma nova assinatura
-asaas.subscriptions.create(data,callback);
+asaas.subscriptions.create(data);
 
 //atualiza determinada assinatura por id
-asaas.subscriptions.update(id,data,callback)
+asaas.subscriptions.update(id, data);
 
 //deleta determinada assinatura por id
-asaas.subscriptions.delete(id,callback)
+asaas.subscriptions.delete(id);
 
 ```
 
@@ -103,25 +91,25 @@ asaas.subscriptions.delete(id,callback)
 
 ```javascript
 //retorna todas as cobranças
-asaas.payments.getAll(filters || null, callback);
+asaas.payments.getAll(filters || null);
 
 //retorna determinada cobrança por id
-asaas.payments.getById(id,callback);
+asaas.payments.getById(id);
 
 //retorna cobranças de um determinado cliente
-asaas.payments.getByCustomer(filters || null, customer_id, callback);
+asaas.payments.getByCustomer(filters || null, customer_id);
 
 //retorna cobranças de uma determinada assinatura
-asaas.payments.getBySubscription(filters || null, subscription_id, callback);
+asaas.payments.getBySubscription(filters || null, subscription_id);
 
 //cria uma nova cobrança
-asaas.payments.create(data, callback);
+asaas.payments.create(data);
 
 //atualiza uma determinada cobrança por id
-asaas.payments.update(id,data,callback);
+asaas.payments.update(id, data);
 
 //deleta uma determinada cobrança por id
-asaas.payments.delete(id,callback);
+asaas.payments.delete(id);
 
 ```
 
@@ -129,12 +117,12 @@ asaas.payments.delete(id,callback);
 
 ```javascript
 //retorna todas as cidades
-asaas.cities.getAll(filters || null,callback);
+asaas.cities.getAll(filters || null);
 
 //retorna determinada cidade por id
-asaas.cities.getById(id,callback);
+asaas.cities.getById(id);
 
 //retorna determinada cidade por nome
-asaas.cities.getByName(name, callback);
+asaas.cities.getByName(name);
 
 ```

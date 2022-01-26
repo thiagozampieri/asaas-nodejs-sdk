@@ -10,11 +10,15 @@ const payment = {
 		return request('/payments/' + id);
 	},
 	getByCustomer: async (filters, customer_id) => {
-		const uri = filters ? '/customers/' + customer_id+'/payments?' + qs.stringify(filters) : '/customers/' + customer_id+'/payments';
+		const uri = filters ? '/customers/' + customer_id + '/payments?' + qs.stringify(filters) : '/customers/' + customer_id+'/payments';
 		return request(uri,'GET');
 	},
 	getBySubscription: async (filters, subscription_id) => {
-		const uri = filters ? '/subscriptions/' + subscription_id+'/payments?' + qs.stringify(filters) : '/subscriptions/' + subscription_id+'/payments';
+		const uri = filters ? '/subscriptions/' + subscription_id + '/payments?' + qs.stringify(filters) : '/subscriptions/' + subscription_id+'/payments';
+		return request(uri, 'GET');
+	},
+	getIdentificationFieldById: async (id) => {
+		const uri = '/payments/' + id + '/identificationField';
 		return request(uri, 'GET');
 	},
 	create: async (data) => {
